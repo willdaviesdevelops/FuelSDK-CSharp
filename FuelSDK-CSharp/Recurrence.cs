@@ -1,0 +1,18 @@
+namespace FuelSDK
+{
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(YearlyRecurrence))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MonthlyRecurrence))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeeklyRecurrence))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DailyRecurrence))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HourlyRecurrence))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinutelyRecurrence))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "3.0.4506.2152")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://exacttarget.com/wsdl/partnerAPI")]
+    public abstract partial class Recurrence
+    {
+    }
+}

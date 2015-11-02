@@ -1,0 +1,50 @@
+namespace FuelSDK
+{
+    public class ET_TriggeredSend : FuelSDK.TriggeredSendDefinition
+    {
+        public int? FolderID { get; set; }
+        internal string FolderMediaType = "triggered_send";
+        public ET_Subscriber[] Subscribers { get; set; }
+
+        public FuelSDK.SendReturn Send()
+        {
+            ET_Trigger ts = new ET_Trigger();
+            ts.CustomerKey = this.CustomerKey;
+            ts.TriggeredSendDefinition = this;
+            ts.Subscribers = this.Subscribers;
+            ((ET_TriggeredSend)ts.TriggeredSendDefinition).Subscribers = null;
+            ts.AuthStub = this.AuthStub;
+
+            return new FuelSDK.SendReturn(ts);
+        }
+
+        public FuelSDK.PostReturn Post()
+        {
+            return new FuelSDK.PostReturn(this);
+        }
+        public FuelSDK.PatchReturn Patch()
+        {
+            return new FuelSDK.PatchReturn(this);
+        }
+        public FuelSDK.DeleteReturn Delete()
+        {
+            return new FuelSDK.DeleteReturn(this);
+        }
+        public FuelSDK.GetReturn Get()
+        {
+            FuelSDK.GetReturn response = new GetReturn(this);
+            this.LastRequestID = response.RequestID;
+            return response;
+        }
+        public FuelSDK.GetReturn GetMoreResults()
+        {
+            FuelSDK.GetReturn response = new GetReturn(this, true, null);
+            this.LastRequestID = response.RequestID;
+            return response;
+        }
+        public FuelSDK.InfoReturn Info()
+        {
+            return new FuelSDK.InfoReturn(this);
+        }
+    }
+}
